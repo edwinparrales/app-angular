@@ -31,16 +31,16 @@ private titulo : string ="Crear cliente";
     this.clienteService.create(this.cliente).subscribe(
       cliente => {
         this.router.navigate(['/clientes'])
-      swal.fire('Cliente creado',`Cliente ${cliente.nombre} creado con exito!`,'success')
+      swal.fire('Nuevo cliente',`el cliente ${cliente.nombre} ha sido creado con exito`,'success')
     }
     )
   }
  update():void{
    this.clienteService.update(this.cliente)
    .subscribe(
-     cliente => {
+     json => {
        this.router.navigate(['/clientes'])
-       swal.fire('Cliente actualizado',`Cliente ${cliente.nombre} actualizado con exito!`,'success')
+       swal.fire('Cliente actualizado',`${json.mensaje}:${json.cliente.nombre}`,'success')
      }
    );
  }
